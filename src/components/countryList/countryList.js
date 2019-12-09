@@ -1,9 +1,9 @@
 import React from 'react';
+import ListGroup from "reactstrap/es/ListGroup";
 
 const CountryList = props => {
     return (
         <ListGroup>
-            {/*<ListGroupItem>Cras justo odio</ListGroupItem>*/}
         </ListGroup>
     );
 };
