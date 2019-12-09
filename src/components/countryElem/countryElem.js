@@ -3,7 +3,7 @@ import ListGroupItem from "reactstrap/es/ListGroupItem";
 
 const CountryElem = props => {
     return (
-        <ListGroupItem></ListGroupItem>
+        <ListGroupItem>{props.text}</ListGroupItem>
     );
 };
 

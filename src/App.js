@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import CountryList from "./components/countryList/countryList";
 
 class App extends Component {
   state = {
@@ -20,7 +21,7 @@ class App extends Component {
   render() {
     return (
         <div>
-
+          <CountryList countries={this.state.countriesList}/>
         </div>
     );
   }
