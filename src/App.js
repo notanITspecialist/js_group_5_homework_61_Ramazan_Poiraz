@@ -14,6 +14,10 @@ class App extends Component {
     this.setState({countriesList: state})
   };
 
+  findCountrie = id => {
+    console.log(id)
+  };
+
   async componentDidMount() {
     await this.addListCountries();
   }
@@ -21,7 +25,7 @@ class App extends Component {
   render() {
     return (
         <div>
-          <CountryList countries={this.state.countriesList}/>
+          <CountryList countries={this.state.countriesList} onClick={this.findCountrie}/>
         </div>
     );
   }
