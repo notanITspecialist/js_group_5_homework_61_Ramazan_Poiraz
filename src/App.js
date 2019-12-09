@@ -14,8 +14,7 @@ class App extends Component {
   };
 
   async componentDidMount() {
-    await this.addListCountries()
-    console.log(this.state.countriesList)
+    await this.addListCountries();
   }
 
   render() {
