@@ -1,10 +1,30 @@
-import React from 'react';
+import React, {Component} from 'react';
+import axios from 'axios';
 
-function App() {
-  return (
-    <div>
-    </div>
-  );
+class App extends Component {
+  state = {
+    countriesList: []
+  };
+
+  addListCountries = async () => {
+    let state = [...this.state.countriesList];
+    const countries = await axios.get('https://restcountries.eu/rest/v2/all?fields=name;alpha3Code');
+    state = countries.data;
+    this.setState({countriesList: state})
+  };
+
+  async componentDidMount() {
+    await this.addListCountries()
+    console.log(this.state.countriesList)
+  }
+
+  render() {
+    return (
+        <div>
+
+        </div>
+    );
+  }
 }
 
 export default App;
