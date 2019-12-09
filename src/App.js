@@ -4,7 +4,8 @@ import CountryList from "./components/countryList/countryList";
 
 class App extends Component {
   state = {
-    countriesList: []
+    countriesList: [],
+    findCountrie: {}
   };
 
   addListCountries = async () => {
@@ -14,8 +15,16 @@ class App extends Component {
     this.setState({countriesList: state})
   };
 
-  findCountrie = id => {
-    console.log(id)
+  findCountrie = async id => {
+    const countrie = await axios.get('https://restcountries.eu/rest/v2/alpha/'+id);
+    const arr = [];
+    for(let border of countrie.data.borders){
+      const request = axios.get('https://restcountries.eu/rest/v2/alpha/'+border);
+      arr.push(request);
+    }
+    const borders = [];
+    await Promise.all(arr).then(elem=> elem.forEach(elem => borders.push(elem.data.name)));
+    console.log(borders)
   };
 
   async componentDidMount() {
