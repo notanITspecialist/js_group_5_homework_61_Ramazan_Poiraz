@@ -16,6 +16,7 @@ class App extends Component {
   };
 
   findCountrie = async id => {
+    let state = {...this.state.findCountrie};
     const countrie = await axios.get('https://restcountries.eu/rest/v2/alpha/'+id);
     const arr = [];
     for(let border of countrie.data.borders){
@@ -24,7 +25,9 @@ class App extends Component {
     }
     const borders = [];
     await Promise.all(arr).then(elem=> elem.forEach(elem => borders.push(elem.data.name)));
-    console.log(borders)
+    countrie.data.borders = borders;
+    state = countrie.data
+    this.setState({findCountrie: state})
   };
 
   async componentDidMount() {
@@ -34,6 +37,7 @@ class App extends Component {
   render() {
     return (
         <div>
+          {console.log(this.state.findCountrie)}
           <CountryList countries={this.state.countriesList} onClick={this.findCountrie}/>
         </div>
     );
