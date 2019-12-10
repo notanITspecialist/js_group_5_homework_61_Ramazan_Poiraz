@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import './App.css'
 import CountryList from "./components/countryList/countryList";
+import FindCountrie from "./components/findCountrie/findCountrie";
 
 class App extends Component {
   state = {
@@ -35,9 +37,9 @@ class App extends Component {
 
   render() {
     return (
-        <div>
-          {console.log(this.state.findCountrie)}
+        <div className="country-block">
           <CountryList countries={this.state.countriesList} onClick={this.findCountrie}/>
+          <FindCountrie countrie={this.state.findCountrie}/>
         </div>
     );
   }
