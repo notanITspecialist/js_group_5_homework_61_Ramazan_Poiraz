@@ -1,5 +1,6 @@
 .country-list {
-    height: 291px;
+    height: 500px;
     width: 30%;
     overflow: auto;
+    border: 1px solid #ccc;
 }

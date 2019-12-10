@@ -1,3 +1,49 @@
 .find-countrie {
-    /*display: inline-block;*/
+    position: relative;
+    border: 1px solid #ccc;
+    width: 32%;
+    height: 500px;
+}
+
+.country-name {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 23px;
+}
+
+.country-nativeName {
+    position: absolute;
+    top: 50px;
+    left: 20px;
+}
+
+.country-capital {
+    position: absolute;
+    top: 90px;
+    left: 20px;
+}
+
+.country-population {
+    position: absolute;
+    top: 120px;
+    left: 20px;
+}
+
+.country-region {
+    position: absolute;
+    top: 150px;
+    left: 20px;
+}
+
+.find-countrie img{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 200px;
+}
+
+.find-countrie ul{
+    position: absolute;
+    bottom: 20px;
 }
