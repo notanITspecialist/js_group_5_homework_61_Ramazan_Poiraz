@@ -3,7 +3,6 @@ import './findCountrie.css'
 
 const FindCountrie = props => {
     const countrie = props.countrie;
-    console.log(countrie)
     let borders = null;
     if(countrie.name){
         borders = countrie.borders.map(elem => <li key={elem}>{elem}</li>);

@@ -3,6 +3,7 @@ import axios from 'axios';
 import './App.css'
 import CountryList from "./components/countryList/countryList";
 import FindCountrie from "./components/findCountrie/findCountrie";
+import RandomDogs from "./components/randomDogs/randomDogs";
 
 class App extends Component {
   state = {
@@ -40,6 +41,7 @@ class App extends Component {
         <div className="country-block">
           <CountryList countries={this.state.countriesList} onClick={this.findCountrie}/>
           <FindCountrie countrie={this.state.findCountrie}/>
+          <RandomDogs />
         </div>
     );
   }

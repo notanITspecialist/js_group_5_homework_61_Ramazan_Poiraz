@@ -1,0 +1,12 @@
+.random-dogs {
+    position: relative;
+    border: 1px solid #ccc;
+    width: 30%;
+}
+
+.random-dogs img {
+    position: absolute;
+    left: 20px;
+    top: 40px;
+    max-height: 400px;
+}
