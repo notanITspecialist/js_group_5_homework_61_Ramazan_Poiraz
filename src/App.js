@@ -18,15 +18,14 @@ class App extends Component {
   findCountrie = async id => {
     let state = {...this.state.findCountrie};
     const countrie = await axios.get('https://restcountries.eu/rest/v2/alpha/'+id);
-    const arr = [];
-    for(let border of countrie.data.borders){
-      const request = axios.get('https://restcountries.eu/rest/v2/alpha/'+border);
-      arr.push(request);
-    }
+    const arr = countrie.data.borders.reduce((borders,border)=>{
+      borders.push(axios.get('https://restcountries.eu/rest/v2/alpha/'+border));
+      return borders
+    },[]);
     const borders = [];
     await Promise.all(arr).then(elem=> elem.forEach(elem => borders.push(elem.data.name)));
     countrie.data.borders = borders;
-    state = countrie.data
+    state = countrie.data;
     this.setState({findCountrie: state})
   };
 
